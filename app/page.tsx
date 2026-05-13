@@ -26,8 +26,26 @@ export default function HomePage() {
       <SquadBoard hub={HUB} countries={COUNTRIES} />
 
       <footer className="mt-16 border-t border-white/5 pt-8 text-xs text-white/30">
-        <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <span>Not financial advice. Market data via Dexscreener.</span>
+          <a
+            href="https://x.com/WorldCupRay"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-white/70 transition hover:border-[var(--gold)]/50 hover:text-[var(--gold)]"
+            aria-label="Follow @WorldCupRay on X"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden
+            >
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            <span>@WorldCupRay</span>
+          </a>
           <span>worldcupraydium.fun · 2026</span>
         </div>
       </footer>
