@@ -67,16 +67,17 @@ npm run deploy -- --only=BRA
 ::    -> check the mint on solscan.io and the pool on raydium.io/launchpad
 ::    -> if it looks good, continue
 
-:: 5. Deploy the remaining 47 country tokens, 10s between each
+:: 5. Deploy the remaining 47 country tokens, 10s between each.
+::    lib/mints.ts is updated after EACH successful deploy, so the site
+::    can pick up new tokens immediately (HMR in dev, rebuild in prod).
 npm run deploy -- --delay=10
 
-:: 6. Write the resulting mint addresses back into lib/mints.ts
+:: 6. (Optional) Force a manual re-sync of lib/mints.ts from deploys.json
 npm run deploy:sync
 
 :: 7. LATER, when CUP metadata is ready and uploaded to Pinata,
 ::    deploy the hub:
 npm run deploy -- --only=CUP
-npm run deploy:sync
 ```
 
 ## Flags

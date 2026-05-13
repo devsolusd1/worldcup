@@ -23,6 +23,7 @@ import {
   loadDeployer,
 } from "./config";
 import { type Assignment, loadAssignments } from "./assignments";
+import { writeMintsFile } from "./sync-mints";
 
 const METADATA_CIDS_FILE = "./metadata-cids.json";
 const DEPLOYS_FILE = "./scripts/deploy/deploys.json";
@@ -295,8 +296,9 @@ async function main() {
         timestamp: Date.now(),
       };
       saveDeploys(deploys);
+      const sync = writeMintsFile();
       console.log(
-        `✓ ${result.mint}${result.poolId ? `  pool ${result.poolId}` : ""}`,
+        `✓ ${result.mint}${result.poolId ? `  pool ${result.poolId}` : ""}  [synced ${sync.written}]`,
       );
       ok++;
     } catch (err) {
@@ -323,7 +325,7 @@ async function main() {
   console.log(`Done — ok: ${ok}, failed: ${failed}`);
   console.log(`Results saved to ${DEPLOYS_FILE}`);
   if (ok > 0) {
-    console.log(`Run 'npm run deploy:sync' to write mints into lib/mints.ts`);
+    console.log(`lib/mints.ts already up to date (synced after each deploy).`);
   }
 }
 
