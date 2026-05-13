@@ -28,6 +28,13 @@ import { writeMintsFile } from "./sync-mints";
 const METADATA_CIDS_FILE = "./metadata-cids.json";
 const DEPLOYS_FILE = "./scripts/deploy/deploys.json";
 
+// Initial buy per token. Small but >0 so the token is immediately tradable
+// (Raydium SDK rejects buyAmount=0 with createOnly=false, and a token with
+// no first buy can end up "locked" until someone seeds the curve).
+// 0.0001 SOL × 49 tokens ≈ 0.005 SOL total.
+const INITIAL_BUY_SOL = 0.0001;
+const INITIAL_BUY_LAMPORTS = Math.floor(INITIAL_BUY_SOL * LAMPORTS_PER_SOL);
+
 type DeployRecord = {
   id: string;
   symbol: string;
@@ -115,7 +122,7 @@ async function deployOne(
   const configInfo = LaunchpadConfig.decode(configData.data);
   const mintBInfo = await raydium.token.getTokenInfo(configInfo.mintB);
 
-  const inAmount = new BN(0);
+  const inAmount = new BN(INITIAL_BUY_LAMPORTS);
 
   const { execute, extInfo } = await raydium.launchpad.createLaunchpad({
     programId,
@@ -132,7 +139,7 @@ async function deployOne(
     txVersion: TxVersion.V0,
     slippage: new BN(100),
     buyAmount: inAmount,
-    createOnly: true,
+    createOnly: INITIAL_BUY_LAMPORTS === 0,
     extraSigners: [pair],
     creatorFeeOn: CpmmCreatorFeeOn.OnlyTokenB,
     supply: new BN("1000000000000000"),
@@ -237,6 +244,9 @@ async function main() {
   console.log(`RPC:       ${connection.rpcEndpoint}`);
   console.log(`Platform:  ${PLATFORM_ID.toBase58()}`);
   console.log(`Vanities:  ${VANITY_DIR}`);
+  console.log(
+    `Buy/token: ${INITIAL_BUY_SOL} SOL (${INITIAL_BUY_LAMPORTS} lamports)`,
+  );
   console.log(
     `Delay:     ${delaySeconds > 0 ? `${delaySeconds}s between deploys` : "none"}`,
   );
