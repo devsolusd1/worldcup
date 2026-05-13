@@ -30,49 +30,64 @@ Failed deploys are retried on the next run.
 3. **Export the deployer wallet's secret key** (bs58 format — same as
    Phantom's "Export Private Key"):
 
-   ```powershell
-   $env:DEPLOYER_SECRET_KEY = 'your_bs58_secret_key'
-   $env:VANITY_DIR = 'C:\Users\John\Downloads\CUP'  # if not copying locally
-   ```
-
    ```cmd
    set DEPLOYER_SECRET_KEY=your_bs58_secret_key
    set VANITY_DIR=C:\Users\John\Downloads\CUP
    ```
 
-## Recommended flow
+   To clear them after you're done:
+
+   ```cmd
+   set DEPLOYER_SECRET_KEY=
+   set VANITY_DIR=
+   ```
+
+## Recommended flow (cmd.exe)
 
 The hub `$CUP` is intentionally skipped by default — deploy it LAST,
 after the country tokens are live and you've prepared CUP metadata.
 
-```powershell
-# 1. Sanity check: see your deployer pubkey + balance
+`--delay=10` spaces deploys by 10 seconds between transactions, which
+keeps the RPC happy and gives the chain time to settle.
+
+```cmd
+:: 1. Sanity check: see your deployer pubkey + balance
 npm run deploy:balance
 
-# 2. Generate the random vanity ↔ country assignment (saved to
-#    scripts/deploy/assignments.json — edit if you want)
+:: 2. Generate the random vanity <-> country assignment (saved to
+::    scripts/deploy/assignments.json — edit if you want)
 npm run deploy:assignments
 
-# 3. Simulate without spending SOL
+:: 3. Simulate without spending SOL
 npm run deploy:dry
 
-# 4. Deploy ONE country first as a smoke test (e.g. BRA)
+:: 4. Smoke test: deploy ONE country first
 npm run deploy -- --only=BRA
 
-#    → check the mint on solscan.io and the pool on raydium.io/launchpad
-#    → if it looks good, continue
+::    -> check the mint on solscan.io and the pool on raydium.io/launchpad
+::    -> if it looks good, continue
 
-# 5. Deploy the remaining 47 country tokens (hub still skipped)
-npm run deploy
+:: 5. Deploy the remaining 47 country tokens, 10s between each
+npm run deploy -- --delay=10
 
-# 6. Write the resulting mint addresses back into lib/mints.ts
+:: 6. Write the resulting mint addresses back into lib/mints.ts
 npm run deploy:sync
 
-# 7. LATER, when CUP metadata is ready and uploaded to Pinata,
-#    deploy the hub:
+:: 7. LATER, when CUP metadata is ready and uploaded to Pinata,
+::    deploy the hub:
 npm run deploy -- --only=CUP
 npm run deploy:sync
 ```
+
+## Flags
+
+| Flag | Effect |
+|---|---|
+| `--dry-run` | Print the plan, don't call execute() |
+| `--only=BRA,ARG` | Deploy only the listed symbols |
+| `--include-hub` | Include the hub `$CUP` in the batch (excluded by default) |
+| `--delay=10` | Wait N seconds between deploys (default: 0) |
+| `--yes` / `-y` | Skip the y/N confirmation prompt |
 
 ## Re-running / retrying
 
@@ -99,7 +114,8 @@ npm run deploy:sync
 ## Safety notes
 
 - `DEPLOYER_SECRET_KEY` is a hot wallet secret. Never commit, log, or share.
-  Clear it after each session: `$env:DEPLOYER_SECRET_KEY = $null`.
+  Clear it after each session: `set DEPLOYER_SECRET_KEY=` (cmd) or
+  `$env:DEPLOYER_SECRET_KEY = $null` (PowerShell).
 - Each `createLaunchpad` costs ~0.01–0.03 SOL in rent + fees. Top up the
   deployer wallet with enough SOL for 49 deploys + buffer (~2 SOL safe).
 - The script uses `createOnly: false, buyAmount: 0` — same as your template.

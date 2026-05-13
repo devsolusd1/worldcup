@@ -173,11 +173,21 @@ function parseArgs() {
         .map((s) => s.trim().toUpperCase())
     : null;
 
-  return { dryRun, yes, only, includeHub };
+  const delayArg = args.find((a) => a.startsWith("--delay="));
+  const delaySeconds = delayArg ? Number(delayArg.split("=")[1]) : 0;
+  if (Number.isNaN(delaySeconds) || delaySeconds < 0) {
+    throw new Error(`--delay must be a non-negative number of seconds`);
+  }
+
+  return { dryRun, yes, only, includeHub, delaySeconds };
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function main() {
-  const { dryRun, yes, only, includeHub } = parseArgs();
+  const { dryRun, yes, only, includeHub, delaySeconds } = parseArgs();
 
   const assignments = loadAssignments();
   const cids = loadMetadataCids();
@@ -220,6 +230,9 @@ async function main() {
   console.log(`Platform:  ${PLATFORM_ID.toBase58()}`);
   console.log(`Vanities:  ${VANITY_DIR}`);
   console.log(
+    `Delay:     ${delaySeconds > 0 ? `${delaySeconds}s between deploys` : "none"}`,
+  );
+  console.log(
     `Pending:   ${pending.length} of ${assignments.length}${only ? ` (filtered by --only=${only.join(",")})` : ""}`,
   );
   if (hubSkipped) {
@@ -257,7 +270,8 @@ async function main() {
 
   let ok = 0;
   let failed = 0;
-  for (const a of pending) {
+  for (let i = 0; i < pending.length; i++) {
+    const a = pending[i];
     let uri: string;
     try {
       uri = metadataUriFor(a.symbol, cids);
@@ -268,7 +282,7 @@ async function main() {
     }
 
     process.stdout.write(
-      `→ ${a.symbol.padEnd(5)} ${a.name.padEnd(30)} `,
+      `→ [${(i + 1).toString().padStart(2)}/${pending.length}] ${a.symbol.padEnd(5)} ${a.name.padEnd(30)} `,
     );
     try {
       const result = await deployOne(a, uri);
@@ -297,6 +311,11 @@ async function main() {
       saveDeploys(deploys);
       console.log(`✗ ${msg.slice(0, 120)}`);
       failed++;
+    }
+
+    // Throttle between deploys (skip after the last one)
+    if (delaySeconds > 0 && i < pending.length - 1) {
+      await sleep(delaySeconds * 1000);
     }
   }
 
