@@ -9,9 +9,19 @@
     "lint": "eslint",
     "flags": "tsx scripts/generate-flag-pngs.ts",
     "metadata": "tsx scripts/generate-metadata.ts",
-    "pinata": "tsx scripts/upload-metadata.ts"
+    "pinata": "tsx scripts/upload-metadata.ts",
+    "deploy:balance": "tsx scripts/deploy/balance.ts",
+    "deploy:assignments": "tsx scripts/deploy/assignments.ts",
+    "deploy:dry": "tsx scripts/deploy/deploy.ts --dry-run",
+    "deploy": "tsx scripts/deploy/deploy.ts",
+    "deploy:sync": "tsx scripts/deploy/sync-mints.ts"
   },
   "dependencies": {
+    "@raydium-io/raydium-sdk-v2": "^0.2.43-alpha",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
+    "bn.js": "^5.2.3",
+    "bs58": "^6.0.0",
     "flag-icons": "^7.5.0",
     "next": "16.2.4",
     "react": "19.2.4",
@@ -19,6 +29,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bn.js": "^5.2.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

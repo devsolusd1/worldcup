@@ -29,8 +29,9 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files
-.env*
-!.env.example
+.env
+.env.local
+.env.*.local
 
 # vercel
 .vercel
@@ -48,3 +49,8 @@ next-env.d.ts
 
 # Pinata upload result mapping (regenerate with npm run pinata)
 /metadata-cids.json
+
+# Deployer artifacts (NEVER commit — contains keys and tx state)
+/scripts/deploy/assignments.json
+/scripts/deploy/deploys.json
+/vanity-keys/

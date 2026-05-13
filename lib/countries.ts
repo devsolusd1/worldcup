@@ -1,3 +1,5 @@
+import { MINTS } from "./mints";
+
 export type CountryToken = {
   id: string;
   name: string;
@@ -19,7 +21,7 @@ export type HubToken = {
 export const HUB: HubToken = {
   ticker: "CUP",
   name: "World Cup Raydium",
-  mint: null,
+  mint: MINTS.hub ?? null,
   description:
     "The hub token. A portion of trading fees from every country coin flows back to buy and burn CUP.",
 };
@@ -35,7 +37,7 @@ const c = (
   code,
   iso2,
   ticker: code,
-  mint: null,
+  mint: MINTS[id] ?? null,
 });
 
 // 2026 FIFA World Cup — official 48 qualified teams.
