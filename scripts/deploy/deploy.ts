@@ -191,6 +191,13 @@ async function main() {
   const { dryRun, yes, only, includeHub, delaySeconds } = parseArgs();
 
   const assignments = loadAssignments();
+  // Ensure lib/mints.ts mirrors assignments.json (pre-allocates all 49 mints).
+  // Idempotent — safe to call every run.
+  const sync = writeMintsFile();
+  if (sync.written > 0) {
+    console.log(`Pre-allocated ${sync.written} mints in lib/mints.ts`);
+  }
+
   const cids = loadMetadataCids();
   const deploys = loadDeploys();
 
@@ -296,9 +303,8 @@ async function main() {
         timestamp: Date.now(),
       };
       saveDeploys(deploys);
-      const sync = writeMintsFile();
       console.log(
-        `✓ ${result.mint}${result.poolId ? `  pool ${result.poolId}` : ""}  [synced ${sync.written}]`,
+        `✓ ${result.mint}${result.poolId ? `  pool ${result.poolId}` : ""}`,
       );
       ok++;
     } catch (err) {

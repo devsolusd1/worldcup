@@ -54,30 +54,39 @@ keeps the RPC happy and gives the chain time to settle.
 :: 1. Sanity check: see your deployer pubkey + balance
 npm run deploy:balance
 
-:: 2. Generate the random vanity <-> country assignment (saved to
-::    scripts/deploy/assignments.json — edit if you want)
+:: 2. Generate the random vanity <-> country mapping AND pre-populate
+::    lib/mints.ts with all 49 reserved mint addresses.
+::    Both assignments.json and lib/mints.ts are committed to git, so the
+::    site is "ready" before any on-chain deploys happen.
 npm run deploy:assignments
 
-:: 3. Simulate without spending SOL
+:: 3. Commit + push the pre-allocated state to Vercel
+git add scripts/deploy/assignments.json lib/mints.ts
+git commit -m "chore: pre-allocate 49 token mints"
+git push
+
+::    -> Vercel rebuilds. All 48 country cards now show "Listed" with
+::       their reserved mint addresses + Copy CA. Hub is also pre-listed.
+::       Cards stay "Listed" until each token is created on-chain AND
+::       Dexscreener indexes its pool, at which point they flip to "Live".
+
+:: 4. Simulate the deploys without spending SOL
 npm run deploy:dry
 
-:: 4. Smoke test: deploy ONE country first
+:: 5. Smoke test: deploy ONE country first
 npm run deploy -- --only=BRA
 
 ::    -> check the mint on solscan.io and the pool on raydium.io/launchpad
 ::    -> if it looks good, continue
 
-:: 5. Deploy the remaining 47 country tokens, 10s between each.
-::    lib/mints.ts is updated after EACH successful deploy, so the site
-::    can pick up new tokens immediately (HMR in dev, rebuild in prod).
+:: 6. Deploy the remaining 47 country tokens, 10s between each
 npm run deploy -- --delay=10
 
-:: 6. (Optional) Force a manual re-sync of lib/mints.ts from deploys.json
-npm run deploy:sync
-
-:: 7. LATER, when CUP metadata is ready and uploaded to Pinata,
-::    deploy the hub:
+:: 7. LATER, when CUP metadata is ready and uploaded to Pinata, deploy hub
 npm run deploy -- --only=CUP
+
+:: (lib/mints.ts is already correct — pre-allocated from step 2 — you don't
+::  need deploy:sync. It's available as 'npm run deploy:sync' for repair.)
 ```
 
 ## Flags

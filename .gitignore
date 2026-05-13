@@ -50,7 +50,8 @@ next-env.d.ts
 # Pinata upload result mapping (regenerate with npm run pinata)
 /metadata-cids.json
 
-# Deployer artifacts (NEVER commit — contains keys and tx state)
-/scripts/deploy/assignments.json
+# Deployer artifacts. assignments.json IS committed so the vanity ↔ country
+# mapping is stable across machines and pre-allocated on Vercel; deploys.json
+# (tx receipts) and vanity-keys (private keys!) are not.
 /scripts/deploy/deploys.json
 /vanity-keys/

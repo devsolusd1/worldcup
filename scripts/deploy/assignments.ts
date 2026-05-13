@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { COUNTRIES, HUB } from "../../lib/countries";
 import { VANITY_DIR } from "./config";
+import { writeMintsFile } from "./sync-mints";
 
 export type Assignment = {
   id: string;
@@ -74,6 +75,11 @@ export function generateAssignments(): Assignment[] {
     JSON.stringify(assignments, null, 2) + "\n",
     "utf-8",
   );
+
+  // Immediately pre-allocate the 49 mints into lib/mints.ts so the site
+  // can be deployed/committed before any on-chain deploys run.
+  writeMintsFile();
+
   return assignments;
 }
 
@@ -102,6 +108,11 @@ async function main() {
   for (const a of assignments) {
     console.log(`  ${a.symbol.padEnd(5)} ${a.name.padEnd(35)} ${a.publicKey}`);
   }
+  console.log(
+    `\nlib/mints.ts has been pre-populated with all ${assignments.length} mints.\n` +
+      `Commit it and push to Vercel — the site will show the cards as "Listed"\n` +
+      `until each deploy + Dexscreener indexing flips them to "Live".`,
+  );
 }
 
 if (process.argv[1]?.endsWith("assignments.ts")) {
