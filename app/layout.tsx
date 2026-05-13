@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const SITE_URL = "https://cupcoins.fun";
-const SITE_NAME = "CUP Coins";
+const SITE_URL = "https://worldcupraydium.fun";
+const SITE_NAME = "World Cup Raydium";
 const SITE_DESCRIPTION =
-  "Country meme coins for the 2026 World Cup. 48 nations, one ticker suffix: CUP. Live market data, launched on Raydium Launchlab.";
+  "48 country meme coins for the 2026 FIFA World Cup, launched on Raydium Launchlab. Every mint address ends in CUP.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050a08",
+  themeColor: "#04080c",
   width: "device-width",
   initialScale: 1,
 };

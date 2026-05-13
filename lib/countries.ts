@@ -18,7 +18,7 @@ export type HubToken = {
 
 export const HUB: HubToken = {
   ticker: "CUP",
-  name: "World Cup Coin",
+  name: "World Cup Raydium",
   mint: null,
   description:
     "The hub token. A portion of trading fees from every country coin flows back to buy and burn CUP.",
@@ -38,17 +38,18 @@ const c = (
   mint: null,
 });
 
-// 2026 World Cup — 48 participants.
-// Hosts: USA, Canada, Mexico. The remaining 45 slots reflect the most likely
-// qualified nations from each confederation as of the build date — adjust this
-// list to match the final FIFA draw before launch.
+// 2026 FIFA World Cup — official 48 qualified teams.
+// Source: https://en.wikipedia.org/wiki/2026_FIFA_World_Cup
 export const COUNTRIES: CountryToken[] = [
-  // Hosts (CONCACAF)
+  // CONCACAF (6) — hosts + Curaçao, Haiti, Panama
   c("usa", "United States", "USA", "us"),
   c("canada", "Canada", "CAN", "ca"),
   c("mexico", "Mexico", "MEX", "mx"),
+  c("curacao", "Curaçao", "CUW", "cw"),
+  c("haiti", "Haiti", "HAI", "ht"),
+  c("panama", "Panama", "PAN", "pa"),
 
-  // CONMEBOL (6 direct)
+  // CONMEBOL (6)
   c("brazil", "Brazil", "BRA", "br"),
   c("argentina", "Argentina", "ARG", "ar"),
   c("uruguay", "Uruguay", "URU", "uy"),
@@ -59,22 +60,22 @@ export const COUNTRIES: CountryToken[] = [
   // UEFA (16)
   c("france", "France", "FRA", "fr"),
   c("england", "England", "ENG", "gb-eng"),
+  c("scotland", "Scotland", "SCO", "gb-sct"),
   c("spain", "Spain", "ESP", "es"),
   c("portugal", "Portugal", "POR", "pt"),
   c("germany", "Germany", "GER", "de"),
-  c("italy", "Italy", "ITA", "it"),
   c("netherlands", "Netherlands", "NED", "nl"),
   c("belgium", "Belgium", "BEL", "be"),
   c("croatia", "Croatia", "CRO", "hr"),
   c("switzerland", "Switzerland", "SUI", "ch"),
-  c("denmark", "Denmark", "DEN", "dk"),
   c("austria", "Austria", "AUT", "at"),
-  c("poland", "Poland", "POL", "pl"),
-  c("serbia", "Serbia", "SRB", "rs"),
-  c("hungary", "Hungary", "HUN", "hu"),
   c("norway", "Norway", "NOR", "no"),
+  c("sweden", "Sweden", "SWE", "se"),
+  c("czech", "Czech Republic", "CZE", "cz"),
+  c("turkey", "Turkey", "TUR", "tr"),
+  c("bosnia", "Bosnia and Herzegovina", "BIH", "ba"),
 
-  // AFC (8 direct)
+  // AFC (9)
   c("japan", "Japan", "JPN", "jp"),
   c("korea", "South Korea", "KOR", "kr"),
   c("iran", "Iran", "IRN", "ir"),
@@ -83,29 +84,22 @@ export const COUNTRIES: CountryToken[] = [
   c("qatar", "Qatar", "QAT", "qa"),
   c("uzbekistan", "Uzbekistan", "UZB", "uz"),
   c("iraq", "Iraq", "IRQ", "iq"),
+  c("jordan", "Jordan", "JOR", "jo"),
 
-  // CAF (9)
+  // CAF (10)
   c("morocco", "Morocco", "MAR", "ma"),
   c("senegal", "Senegal", "SEN", "sn"),
   c("algeria", "Algeria", "ALG", "dz"),
   c("egypt", "Egypt", "EGY", "eg"),
   c("tunisia", "Tunisia", "TUN", "tn"),
-  c("cameroon", "Cameroon", "CMR", "cm"),
-  c("nigeria", "Nigeria", "NGA", "ng"),
   c("ivorycoast", "Ivory Coast", "CIV", "ci"),
   c("ghana", "Ghana", "GHA", "gh"),
-
-  // CONCACAF (3 more)
-  c("panama", "Panama", "PAN", "pa"),
-  c("costarica", "Costa Rica", "CRC", "cr"),
-  c("jamaica", "Jamaica", "JAM", "jm"),
-
-  // OFC (1 direct)
-  c("newzealand", "New Zealand", "NZL", "nz"),
-
-  // Intercontinental playoff winners (2) — placeholders
-  c("bolivia", "Bolivia", "BOL", "bo"),
   c("dr-congo", "DR Congo", "COD", "cd"),
+  c("cape-verde", "Cape Verde", "CPV", "cv"),
+  c("south-africa", "South Africa", "RSA", "za"),
+
+  // OFC (1)
+  c("newzealand", "New Zealand", "NZL", "nz"),
 ];
 
 if (COUNTRIES.length !== 48) {
