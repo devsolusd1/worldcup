@@ -1,0 +1,345 @@
+[
+  {
+    "id": "hub",
+    "name": "World Cup Raydium",
+    "symbol": "CUP",
+    "vanityFile": "afTjdu272aacT4s8uKdjTADDnmAGvtEb2U8aXudSCUP.json",
+    "publicKey": "afTjdu272aacT4s8uKdjTADDnmAGvtEb2U8aXudSCUP"
+  },
+  {
+    "id": "usa",
+    "name": "United States",
+    "symbol": "USA",
+    "vanityFile": "RmHdjqs9qDhHYZ6BFYDorMGdqRMqGaEgFVVSH79JCUP.json",
+    "publicKey": "RmHdjqs9qDhHYZ6BFYDorMGdqRMqGaEgFVVSH79JCUP"
+  },
+  {
+    "id": "canada",
+    "name": "Canada",
+    "symbol": "CAN",
+    "vanityFile": "LjQ2ha17kaU2NHQZPeW21GUjKU5JdjqSJSos2g4MCUP.json",
+    "publicKey": "LjQ2ha17kaU2NHQZPeW21GUjKU5JdjqSJSos2g4MCUP"
+  },
+  {
+    "id": "mexico",
+    "name": "Mexico",
+    "symbol": "MEX",
+    "vanityFile": "873APipKRTnposLhTx2xpJaM8RfDy5hmMsReX3LLCUP.json",
+    "publicKey": "873APipKRTnposLhTx2xpJaM8RfDy5hmMsReX3LLCUP"
+  },
+  {
+    "id": "curacao",
+    "name": "Curaçao",
+    "symbol": "CUW",
+    "vanityFile": "NgphdcL18cr6CgCNVfXP8khDJhWbrvEw2Z3LnngMCUP.json",
+    "publicKey": "NgphdcL18cr6CgCNVfXP8khDJhWbrvEw2Z3LnngMCUP"
+  },
+  {
+    "id": "haiti",
+    "name": "Haiti",
+    "symbol": "HAI",
+    "vanityFile": "nBNzMxyV35nMYBJwWKydrQ2fuGduEX4d7kQoS1MrCUP.json",
+    "publicKey": "nBNzMxyV35nMYBJwWKydrQ2fuGduEX4d7kQoS1MrCUP"
+  },
+  {
+    "id": "panama",
+    "name": "Panama",
+    "symbol": "PAN",
+    "vanityFile": "acR8b4GscBpepXp6dTLqRLwrGQDx78QyYziaJhaqCUP.json",
+    "publicKey": "acR8b4GscBpepXp6dTLqRLwrGQDx78QyYziaJhaqCUP"
+  },
+  {
+    "id": "brazil",
+    "name": "Brazil",
+    "symbol": "BRA",
+    "vanityFile": "uNbQ6RnwE5ey4dPz9ZeCmdEbD2dwtxS3cM3YhoBhCUP.json",
+    "publicKey": "uNbQ6RnwE5ey4dPz9ZeCmdEbD2dwtxS3cM3YhoBhCUP"
+  },
+  {
+    "id": "argentina",
+    "name": "Argentina",
+    "symbol": "ARG",
+    "vanityFile": "LJWkMyxJQuKQAPhj3ZPNzFQsDYHQfzcLkoyR21KSCUP.json",
+    "publicKey": "LJWkMyxJQuKQAPhj3ZPNzFQsDYHQfzcLkoyR21KSCUP"
+  },
+  {
+    "id": "uruguay",
+    "name": "Uruguay",
+    "symbol": "URU",
+    "vanityFile": "NawnSCQbpsW5eHukjz6xztSzZq7xndHDjSz82AuiCUP.json",
+    "publicKey": "NawnSCQbpsW5eHukjz6xztSzZq7xndHDjSz82AuiCUP"
+  },
+  {
+    "id": "colombia",
+    "name": "Colombia",
+    "symbol": "COL",
+    "vanityFile": "BeX6WsbPfmmMPPRFEgGHEEyhxa3UBhX5nwpKsZktCUP.json",
+    "publicKey": "BeX6WsbPfmmMPPRFEgGHEEyhxa3UBhX5nwpKsZktCUP"
+  },
+  {
+    "id": "ecuador",
+    "name": "Ecuador",
+    "symbol": "ECU",
+    "vanityFile": "wVMzwRmiViNS4HSt76TgMCPSGu2Sidxe7Jv2AKAqCUP.json",
+    "publicKey": "wVMzwRmiViNS4HSt76TgMCPSGu2Sidxe7Jv2AKAqCUP"
+  },
+  {
+    "id": "paraguay",
+    "name": "Paraguay",
+    "symbol": "PAR",
+    "vanityFile": "128Fg3jfA13nH5nhx8CHK5qAMygr1ubqKvShZWUurCUP.json",
+    "publicKey": "128Fg3jfA13nH5nhx8CHK5qAMygr1ubqKvShZWUurCUP"
+  },
+  {
+    "id": "france",
+    "name": "France",
+    "symbol": "FRA",
+    "vanityFile": "SrYFw3yeJx9CEbX1FT1wgDCUsctnrGig91PE9rtvCUP.json",
+    "publicKey": "SrYFw3yeJx9CEbX1FT1wgDCUsctnrGig91PE9rtvCUP"
+  },
+  {
+    "id": "england",
+    "name": "England",
+    "symbol": "ENG",
+    "vanityFile": "gdwsTaSFcmao8HuKMgJPVX7fPLwKVN18R97CLS7pCUP.json",
+    "publicKey": "gdwsTaSFcmao8HuKMgJPVX7fPLwKVN18R97CLS7pCUP"
+  },
+  {
+    "id": "scotland",
+    "name": "Scotland",
+    "symbol": "SCO",
+    "vanityFile": "DFxiew3cvS4ZR6qHsoeqfAFBiorBeJg68hb77kk1CUP.json",
+    "publicKey": "DFxiew3cvS4ZR6qHsoeqfAFBiorBeJg68hb77kk1CUP"
+  },
+  {
+    "id": "spain",
+    "name": "Spain",
+    "symbol": "ESP",
+    "vanityFile": "7NVCTc3qSR87QK3j9m5aBEDnQJQ8JoixDXjxLgUuCUP.json",
+    "publicKey": "7NVCTc3qSR87QK3j9m5aBEDnQJQ8JoixDXjxLgUuCUP"
+  },
+  {
+    "id": "portugal",
+    "name": "Portugal",
+    "symbol": "POR",
+    "vanityFile": "KijKELCCffStJUEZ1aCjBYPtHKzRo9S6sxmC3rsMCUP.json",
+    "publicKey": "KijKELCCffStJUEZ1aCjBYPtHKzRo9S6sxmC3rsMCUP"
+  },
+  {
+    "id": "germany",
+    "name": "Germany",
+    "symbol": "GER",
+    "vanityFile": "emcsSAoGBjo6AQHwtpANKnEKZmp9ppop2VqT5V6KCUP.json",
+    "publicKey": "emcsSAoGBjo6AQHwtpANKnEKZmp9ppop2VqT5V6KCUP"
+  },
+  {
+    "id": "netherlands",
+    "name": "Netherlands",
+    "symbol": "NED",
+    "vanityFile": "ojLVJqPh4Re7CR4AKG2CDBJHKNiJKkZibTzjVjbHCUP.json",
+    "publicKey": "ojLVJqPh4Re7CR4AKG2CDBJHKNiJKkZibTzjVjbHCUP"
+  },
+  {
+    "id": "belgium",
+    "name": "Belgium",
+    "symbol": "BEL",
+    "vanityFile": "rZZBrTyKrPPe3Xx6BLF6eVDwcsYbyHs3e5DEdfkHCUP.json",
+    "publicKey": "rZZBrTyKrPPe3Xx6BLF6eVDwcsYbyHs3e5DEdfkHCUP"
+  },
+  {
+    "id": "croatia",
+    "name": "Croatia",
+    "symbol": "CRO",
+    "vanityFile": "uUc8DArp87eMzwfM8JzfZi45Z3H3tHSY8fWiHBCECUP.json",
+    "publicKey": "uUc8DArp87eMzwfM8JzfZi45Z3H3tHSY8fWiHBCECUP"
+  },
+  {
+    "id": "switzerland",
+    "name": "Switzerland",
+    "symbol": "SUI",
+    "vanityFile": "14qopAuPc1uASj1u6VQGRrJS4L39NjQhE86xUS9zqCUP.json",
+    "publicKey": "14qopAuPc1uASj1u6VQGRrJS4L39NjQhE86xUS9zqCUP"
+  },
+  {
+    "id": "austria",
+    "name": "Austria",
+    "symbol": "AUT",
+    "vanityFile": "JM1d7m3nx7a3X3mVZTY4Wx9sV8C9B1ovHSSq8rV9CUP.json",
+    "publicKey": "JM1d7m3nx7a3X3mVZTY4Wx9sV8C9B1ovHSSq8rV9CUP"
+  },
+  {
+    "id": "norway",
+    "name": "Norway",
+    "symbol": "NOR",
+    "vanityFile": "zb3uT4DNXyZRfy94mpHUPiknNHQyAAVJooF9f3zGCUP.json",
+    "publicKey": "zb3uT4DNXyZRfy94mpHUPiknNHQyAAVJooF9f3zGCUP"
+  },
+  {
+    "id": "sweden",
+    "name": "Sweden",
+    "symbol": "SWE",
+    "vanityFile": "AfKojT8Xy2QRbTSoQxiqiLwnY2wFwwU3VFyFz78jCUP.json",
+    "publicKey": "AfKojT8Xy2QRbTSoQxiqiLwnY2wFwwU3VFyFz78jCUP"
+  },
+  {
+    "id": "czech",
+    "name": "Czech Republic",
+    "symbol": "CZE",
+    "vanityFile": "BE6Q5EtYbR23NRLJbC8ipJZJwoLMsGCuhVarLhYhCUP.json",
+    "publicKey": "BE6Q5EtYbR23NRLJbC8ipJZJwoLMsGCuhVarLhYhCUP"
+  },
+  {
+    "id": "turkey",
+    "name": "Turkey",
+    "symbol": "TUR",
+    "vanityFile": "sPEgkPkadK6WNBaCMciRQy3eQBX6CmvTbcFhHaLPCUP.json",
+    "publicKey": "sPEgkPkadK6WNBaCMciRQy3eQBX6CmvTbcFhHaLPCUP"
+  },
+  {
+    "id": "bosnia",
+    "name": "Bosnia and Herzegovina",
+    "symbol": "BIH",
+    "vanityFile": "eAJ4NTXSS7yJekhci9J3jvy7GWaLotD1PE4bQ86KCUP.json",
+    "publicKey": "eAJ4NTXSS7yJekhci9J3jvy7GWaLotD1PE4bQ86KCUP"
+  },
+  {
+    "id": "japan",
+    "name": "Japan",
+    "symbol": "JPN",
+    "vanityFile": "YDAqT8yVUJvgiDq95f6CuJTnrc7P7A9Bf6bHoq9VCUP.json",
+    "publicKey": "YDAqT8yVUJvgiDq95f6CuJTnrc7P7A9Bf6bHoq9VCUP"
+  },
+  {
+    "id": "korea",
+    "name": "South Korea",
+    "symbol": "KOR",
+    "vanityFile": "PzYyP3EvpFR1ftg8PSWy6YQwTfU1ETQWEB1Kz3hrCUP.json",
+    "publicKey": "PzYyP3EvpFR1ftg8PSWy6YQwTfU1ETQWEB1Kz3hrCUP"
+  },
+  {
+    "id": "iran",
+    "name": "Iran",
+    "symbol": "IRN",
+    "vanityFile": "Qb42EF9RJonQtub8CTQQ1nFDM5HzH3eUcrr2UKcjCUP.json",
+    "publicKey": "Qb42EF9RJonQtub8CTQQ1nFDM5HzH3eUcrr2UKcjCUP"
+  },
+  {
+    "id": "australia",
+    "name": "Australia",
+    "symbol": "AUS",
+    "vanityFile": "7hKUR8iFqpTFrSyFF9Mh5NUnbD5wU5JEEUHHYgQUCUP.json",
+    "publicKey": "7hKUR8iFqpTFrSyFF9Mh5NUnbD5wU5JEEUHHYgQUCUP"
+  },
+  {
+    "id": "saudi",
+    "name": "Saudi Arabia",
+    "symbol": "KSA",
+    "vanityFile": "fh189m5JAYsoCEpMzQQMW9FsXoiUCEt9T9QeDJx7CUP.json",
+    "publicKey": "fh189m5JAYsoCEpMzQQMW9FsXoiUCEt9T9QeDJx7CUP"
+  },
+  {
+    "id": "qatar",
+    "name": "Qatar",
+    "symbol": "QAT",
+    "vanityFile": "dzDKwUX1a9p6T28zAZhMxKVWVNH9JwSWJPWpR2vCCUP.json",
+    "publicKey": "dzDKwUX1a9p6T28zAZhMxKVWVNH9JwSWJPWpR2vCCUP"
+  },
+  {
+    "id": "uzbekistan",
+    "name": "Uzbekistan",
+    "symbol": "UZB",
+    "vanityFile": "Y2Dk2YQafKFSP4xZbyRAhcAZLkbC215NVBCszTigCUP.json",
+    "publicKey": "Y2Dk2YQafKFSP4xZbyRAhcAZLkbC215NVBCszTigCUP"
+  },
+  {
+    "id": "iraq",
+    "name": "Iraq",
+    "symbol": "IRQ",
+    "vanityFile": "mSdXECPSahuXQXTJdvHQzJjk2AxRHkudWSL3Q8yQCUP.json",
+    "publicKey": "mSdXECPSahuXQXTJdvHQzJjk2AxRHkudWSL3Q8yQCUP"
+  },
+  {
+    "id": "jordan",
+    "name": "Jordan",
+    "symbol": "JOR",
+    "vanityFile": "KASJGAMP9fQaXuQr34cDBBLNG4edBHE2FrGrvxs6CUP.json",
+    "publicKey": "KASJGAMP9fQaXuQr34cDBBLNG4edBHE2FrGrvxs6CUP"
+  },
+  {
+    "id": "morocco",
+    "name": "Morocco",
+    "symbol": "MAR",
+    "vanityFile": "rVy92RXjj6aYFTNTBuG4HcuJo6D2v4KqkZSiycdhCUP.json",
+    "publicKey": "rVy92RXjj6aYFTNTBuG4HcuJo6D2v4KqkZSiycdhCUP"
+  },
+  {
+    "id": "senegal",
+    "name": "Senegal",
+    "symbol": "SEN",
+    "vanityFile": "tAv4hnZmQk7U8NvCTxEPJX2c5NyjnobzkHLpA4KJCUP.json",
+    "publicKey": "tAv4hnZmQk7U8NvCTxEPJX2c5NyjnobzkHLpA4KJCUP"
+  },
+  {
+    "id": "algeria",
+    "name": "Algeria",
+    "symbol": "ALG",
+    "vanityFile": "fEzV42NKY8RDHEXe5riReXJ5GCvvoDGb5JETU5emCUP.json",
+    "publicKey": "fEzV42NKY8RDHEXe5riReXJ5GCvvoDGb5JETU5emCUP"
+  },
+  {
+    "id": "egypt",
+    "name": "Egypt",
+    "symbol": "EGY",
+    "vanityFile": "maPfPYBngTRidupq4HPefn1NbVXmCcvhNnEJEH7xCUP.json",
+    "publicKey": "maPfPYBngTRidupq4HPefn1NbVXmCcvhNnEJEH7xCUP"
+  },
+  {
+    "id": "tunisia",
+    "name": "Tunisia",
+    "symbol": "TUN",
+    "vanityFile": "MbtWMvQN2NYmxzku9658oUSjRp78FxeV8WKyipxTCUP.json",
+    "publicKey": "MbtWMvQN2NYmxzku9658oUSjRp78FxeV8WKyipxTCUP"
+  },
+  {
+    "id": "ivorycoast",
+    "name": "Ivory Coast",
+    "symbol": "CIV",
+    "vanityFile": "ky5JUyYgYPuF9q8tXkcQkuW3z1ZxugyMe2GNArSzCUP.json",
+    "publicKey": "ky5JUyYgYPuF9q8tXkcQkuW3z1ZxugyMe2GNArSzCUP"
+  },
+  {
+    "id": "ghana",
+    "name": "Ghana",
+    "symbol": "GHA",
+    "vanityFile": "fTHfSuzxzXhftXk8wVjfiz9UDL1jKuSfh2ABA8JiCUP.json",
+    "publicKey": "fTHfSuzxzXhftXk8wVjfiz9UDL1jKuSfh2ABA8JiCUP"
+  },
+  {
+    "id": "dr-congo",
+    "name": "DR Congo",
+    "symbol": "COD",
+    "vanityFile": "GYa44733TMLcHKuu3NbYM5jwre1AUB3x5gT87vskCUP.json",
+    "publicKey": "GYa44733TMLcHKuu3NbYM5jwre1AUB3x5gT87vskCUP"
+  },
+  {
+    "id": "cape-verde",
+    "name": "Cape Verde",
+    "symbol": "CPV",
+    "vanityFile": "D6PuHreeL6FANKokx7d2Ky2EpDXV9YHG9UHxDKFVCUP.json",
+    "publicKey": "D6PuHreeL6FANKokx7d2Ky2EpDXV9YHG9UHxDKFVCUP"
+  },
+  {
+    "id": "south-africa",
+    "name": "South Africa",
+    "symbol": "RSA",
+    "vanityFile": "LwoeHYk9GcTNiMkCnez5pvfZpc4dosPZS67hVMMNCUP.json",
+    "publicKey": "LwoeHYk9GcTNiMkCnez5pvfZpc4dosPZS67hVMMNCUP"
+  },
+  {
+    "id": "newzealand",
+    "name": "New Zealand",
+    "symbol": "NZL",
+    "vanityFile": "Bj5YGthrf2ZMWG8yvnyV8GV9w5Fu81KoCH1grHAiCUP.json",
+    "publicKey": "Bj5YGthrf2ZMWG8yvnyV8GV9w5Fu81KoCH1grHAiCUP"
+  }
+]
