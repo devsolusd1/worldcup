@@ -42,3 +42,6 @@ next-env.d.ts
 # vanity keys — NEVER commit private keys
 /vanity-keys/
 *.keypair.json
+
+# generated flag PNGs (run npm run flags to regenerate)
+/flags-png/
