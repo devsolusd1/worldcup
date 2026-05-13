@@ -52,10 +52,10 @@ export function SquadBoard({ hub, countries }: Props) {
     };
   }, []);
 
-  const rows = useMemo(() => buildRows(countries, data?.tokens ?? {}), [
-    countries,
-    data,
-  ]);
+  const rows = useMemo(
+    () => buildRows(countries, data?.tokens ?? {}),
+    [countries, data],
+  );
 
   const hubSummary = hub.mint ? (data?.tokens?.[hub.mint] ?? null) : null;
   const liveCount = rows.filter((r) => r.summary.priceUsd !== null).length;
@@ -64,11 +64,11 @@ export function SquadBoard({ hub, countries }: Props) {
     <div className="space-y-8">
       <HubCard hub={hub} summary={hubSummary} />
 
-      <div className="flex items-center justify-between text-xs text-white/40">
-        <span>
+      <div className="flex items-center justify-between text-xs">
+        <span className="pulse-dot pl-5 font-semibold text-white/80">
           {liveCount} of {countries.length} country coins live
         </span>
-        <span className="tabular">
+        <span className="tabular text-white/40">
           {loading
             ? "loading…"
             : data
@@ -77,18 +77,18 @@ export function SquadBoard({ hub, countries }: Props) {
         </span>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
-        <table className="w-full min-w-[720px] text-sm">
+      <div className="overflow-x-auto rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.01]">
+        <table className="w-full min-w-[760px] text-sm">
           <thead>
-            <tr className="text-left text-[11px] uppercase tracking-widest text-white/40">
-              <th className="px-4 py-3 sm:px-5">#</th>
-              <th className="px-4 py-3 sm:px-5">Country</th>
-              <th className="px-4 py-3 sm:px-5">Ticker</th>
-              <th className="px-4 py-3 text-right sm:px-5">Price</th>
-              <th className="px-4 py-3 text-right sm:px-5">24h</th>
-              <th className="px-4 py-3 text-right sm:px-5">Market cap</th>
-              <th className="px-4 py-3 text-right sm:px-5">Volume 24h</th>
-              <th className="px-4 py-3 text-right sm:px-5">Trade</th>
+            <tr className="text-left text-[11px] uppercase tracking-widest text-white/50">
+              <th className="px-4 py-4 sm:px-5">#</th>
+              <th className="px-4 py-4 sm:px-5">Country</th>
+              <th className="px-4 py-4 sm:px-5">Ticker</th>
+              <th className="px-4 py-4 text-right sm:px-5">Price</th>
+              <th className="px-4 py-4 text-right sm:px-5">24h</th>
+              <th className="px-4 py-4 text-right sm:px-5">Market cap</th>
+              <th className="px-4 py-4 text-right sm:px-5">Volume 24h</th>
+              <th className="px-4 py-4 text-right sm:px-5">Trade</th>
             </tr>
           </thead>
           <tbody>
@@ -124,7 +124,9 @@ function buildRows(
 ): RowData[] {
   const rows: RowData[] = countries.map((country) => ({
     country,
-    summary: country.mint ? (tokens[country.mint] ?? EMPTY_SUMMARY) : EMPTY_SUMMARY,
+    summary: country.mint
+      ? (tokens[country.mint] ?? EMPTY_SUMMARY)
+      : EMPTY_SUMMARY,
   }));
 
   rows.sort((a, b) => {
@@ -140,6 +142,13 @@ function buildRows(
   return rows;
 }
 
+function rankColor(rank: number) {
+  if (rank === 1) return "text-[var(--gold)] font-bold";
+  if (rank === 2) return "text-white/80 font-bold";
+  if (rank === 3) return "text-[var(--gold-deep)] font-bold";
+  return "text-white/40";
+}
+
 function Row({ rank, row }: { rank: number; row: RowData }) {
   const { country, summary } = row;
   const live = Boolean(country.mint) && summary.priceUsd !== null;
@@ -152,15 +161,17 @@ function Row({ rank, row }: { rank: number; row: RowData }) {
         : "text-[var(--red)]";
 
   return (
-    <tr className="border-t border-white/5 hover:bg-white/[0.03]">
-      <td className="px-4 py-4 text-white/40 tabular sm:px-5">{rank}</td>
+    <tr className="border-t border-white/5 transition-colors hover:bg-gradient-to-r hover:from-[var(--green)]/[0.04] hover:to-transparent">
+      <td className={`px-4 py-4 tabular sm:px-5 ${rankColor(rank)}`}>{rank}</td>
       <td className="px-4 py-4 sm:px-5">
         <div className="flex items-center gap-3">
-          <span className="text-2xl" aria-hidden>
-            {country.flag}
-          </span>
+          <span
+            className={`fi fi-${country.iso2} flag-pill`}
+            role="img"
+            aria-label={`${country.name} flag`}
+          />
           <div>
-            <div className="font-medium">{country.name}</div>
+            <div className="font-semibold">{country.name}</div>
             {country.mint ? (
               <a
                 href={`https://solscan.io/token/${country.mint}`}
@@ -178,8 +189,10 @@ function Row({ rank, row }: { rank: number; row: RowData }) {
           </div>
         </div>
       </td>
-      <td className="px-4 py-4 font-mono text-xs text-white/70 sm:px-5">
-        ${country.ticker}
+      <td className="px-4 py-4 sm:px-5">
+        <span className="font-mono text-xs font-bold text-[var(--gold)]">
+          ${country.ticker}
+        </span>
       </td>
       <td className="px-4 py-4 text-right tabular sm:px-5">
         {live ? formatPrice(summary.priceUsd) : "—"}
@@ -199,7 +212,7 @@ function Row({ rank, row }: { rank: number; row: RowData }) {
             href={summary.pairUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold text-black hover:bg-white/90"
+            className="cta-green inline-block rounded-full px-4 py-1.5 text-xs"
           >
             Trade
           </a>
@@ -208,7 +221,7 @@ function Row({ rank, row }: { rank: number; row: RowData }) {
             href={country.launchlabUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full border border-white/15 px-3 py-1 text-xs text-white/80 hover:bg-white/5"
+            className="inline-block rounded-full border border-[var(--gold)]/40 px-3 py-1 text-xs text-[var(--gold)] hover:bg-[var(--gold)]/10"
           >
             Launchlab
           </a>

@@ -2,7 +2,7 @@ export type CountryToken = {
   id: string;
   name: string;
   code: string;
-  flag: string;
+  iso2: string;
   ticker: string;
   mint: string | null;
   launchlabUrl?: string;
@@ -28,13 +28,13 @@ const c = (
   id: string,
   name: string,
   code: string,
-  flag: string,
+  iso2: string,
 ): CountryToken => ({
   id,
   name,
   code,
-  flag,
-  ticker: `${code}CUP`,
+  iso2,
+  ticker: code,
   mint: null,
 });
 
@@ -44,68 +44,68 @@ const c = (
 // list to match the final FIFA draw before launch.
 export const COUNTRIES: CountryToken[] = [
   // Hosts (CONCACAF)
-  c("usa", "United States", "USA", "🇺🇸"),
-  c("canada", "Canada", "CAN", "🇨🇦"),
-  c("mexico", "Mexico", "MEX", "🇲🇽"),
+  c("usa", "United States", "USA", "us"),
+  c("canada", "Canada", "CAN", "ca"),
+  c("mexico", "Mexico", "MEX", "mx"),
 
   // CONMEBOL (6 direct)
-  c("brazil", "Brazil", "BRA", "🇧🇷"),
-  c("argentina", "Argentina", "ARG", "🇦🇷"),
-  c("uruguay", "Uruguay", "URU", "🇺🇾"),
-  c("colombia", "Colombia", "COL", "🇨🇴"),
-  c("ecuador", "Ecuador", "ECU", "🇪🇨"),
-  c("paraguay", "Paraguay", "PAR", "🇵🇾"),
+  c("brazil", "Brazil", "BRA", "br"),
+  c("argentina", "Argentina", "ARG", "ar"),
+  c("uruguay", "Uruguay", "URU", "uy"),
+  c("colombia", "Colombia", "COL", "co"),
+  c("ecuador", "Ecuador", "ECU", "ec"),
+  c("paraguay", "Paraguay", "PAR", "py"),
 
   // UEFA (16)
-  c("france", "France", "FRA", "🇫🇷"),
-  c("england", "England", "ENG", "🏴󠁧󠁢󠁥󠁮󠁧󠁿"),
-  c("spain", "Spain", "ESP", "🇪🇸"),
-  c("portugal", "Portugal", "POR", "🇵🇹"),
-  c("germany", "Germany", "GER", "🇩🇪"),
-  c("italy", "Italy", "ITA", "🇮🇹"),
-  c("netherlands", "Netherlands", "NED", "🇳🇱"),
-  c("belgium", "Belgium", "BEL", "🇧🇪"),
-  c("croatia", "Croatia", "CRO", "🇭🇷"),
-  c("switzerland", "Switzerland", "SUI", "🇨🇭"),
-  c("denmark", "Denmark", "DEN", "🇩🇰"),
-  c("austria", "Austria", "AUT", "🇦🇹"),
-  c("poland", "Poland", "POL", "🇵🇱"),
-  c("serbia", "Serbia", "SRB", "🇷🇸"),
-  c("hungary", "Hungary", "HUN", "🇭🇺"),
-  c("norway", "Norway", "NOR", "🇳🇴"),
+  c("france", "France", "FRA", "fr"),
+  c("england", "England", "ENG", "gb-eng"),
+  c("spain", "Spain", "ESP", "es"),
+  c("portugal", "Portugal", "POR", "pt"),
+  c("germany", "Germany", "GER", "de"),
+  c("italy", "Italy", "ITA", "it"),
+  c("netherlands", "Netherlands", "NED", "nl"),
+  c("belgium", "Belgium", "BEL", "be"),
+  c("croatia", "Croatia", "CRO", "hr"),
+  c("switzerland", "Switzerland", "SUI", "ch"),
+  c("denmark", "Denmark", "DEN", "dk"),
+  c("austria", "Austria", "AUT", "at"),
+  c("poland", "Poland", "POL", "pl"),
+  c("serbia", "Serbia", "SRB", "rs"),
+  c("hungary", "Hungary", "HUN", "hu"),
+  c("norway", "Norway", "NOR", "no"),
 
   // AFC (8 direct)
-  c("japan", "Japan", "JPN", "🇯🇵"),
-  c("korea", "South Korea", "KOR", "🇰🇷"),
-  c("iran", "Iran", "IRN", "🇮🇷"),
-  c("australia", "Australia", "AUS", "🇦🇺"),
-  c("saudi", "Saudi Arabia", "KSA", "🇸🇦"),
-  c("qatar", "Qatar", "QAT", "🇶🇦"),
-  c("uzbekistan", "Uzbekistan", "UZB", "🇺🇿"),
-  c("iraq", "Iraq", "IRQ", "🇮🇶"),
+  c("japan", "Japan", "JPN", "jp"),
+  c("korea", "South Korea", "KOR", "kr"),
+  c("iran", "Iran", "IRN", "ir"),
+  c("australia", "Australia", "AUS", "au"),
+  c("saudi", "Saudi Arabia", "KSA", "sa"),
+  c("qatar", "Qatar", "QAT", "qa"),
+  c("uzbekistan", "Uzbekistan", "UZB", "uz"),
+  c("iraq", "Iraq", "IRQ", "iq"),
 
   // CAF (9)
-  c("morocco", "Morocco", "MAR", "🇲🇦"),
-  c("senegal", "Senegal", "SEN", "🇸🇳"),
-  c("algeria", "Algeria", "ALG", "🇩🇿"),
-  c("egypt", "Egypt", "EGY", "🇪🇬"),
-  c("tunisia", "Tunisia", "TUN", "🇹🇳"),
-  c("cameroon", "Cameroon", "CMR", "🇨🇲"),
-  c("nigeria", "Nigeria", "NGA", "🇳🇬"),
-  c("ivorycoast", "Ivory Coast", "CIV", "🇨🇮"),
-  c("ghana", "Ghana", "GHA", "🇬🇭"),
+  c("morocco", "Morocco", "MAR", "ma"),
+  c("senegal", "Senegal", "SEN", "sn"),
+  c("algeria", "Algeria", "ALG", "dz"),
+  c("egypt", "Egypt", "EGY", "eg"),
+  c("tunisia", "Tunisia", "TUN", "tn"),
+  c("cameroon", "Cameroon", "CMR", "cm"),
+  c("nigeria", "Nigeria", "NGA", "ng"),
+  c("ivorycoast", "Ivory Coast", "CIV", "ci"),
+  c("ghana", "Ghana", "GHA", "gh"),
 
   // CONCACAF (3 more)
-  c("panama", "Panama", "PAN", "🇵🇦"),
-  c("costarica", "Costa Rica", "CRC", "🇨🇷"),
-  c("jamaica", "Jamaica", "JAM", "🇯🇲"),
+  c("panama", "Panama", "PAN", "pa"),
+  c("costarica", "Costa Rica", "CRC", "cr"),
+  c("jamaica", "Jamaica", "JAM", "jm"),
 
   // OFC (1 direct)
-  c("newzealand", "New Zealand", "NZL", "🇳🇿"),
+  c("newzealand", "New Zealand", "NZL", "nz"),
 
   // Intercontinental playoff winners (2) — placeholders
-  c("bolivia", "Bolivia", "BOL", "🇧🇴"),
-  c("dr-congo", "DR Congo", "COD", "🇨🇩"),
+  c("bolivia", "Bolivia", "BOL", "bo"),
+  c("dr-congo", "DR Congo", "COD", "cd"),
 ];
 
 if (COUNTRIES.length !== 48) {

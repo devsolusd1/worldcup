@@ -5,16 +5,20 @@ export default function HomePage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
       <header className="mb-10 sm:mb-14">
-        <div className="text-xs uppercase tracking-[0.3em] text-[var(--gold)]">
-          June 11 · July 19 · 2026
+        <div className="inline-flex items-center gap-2 rounded-full border border-[var(--green)]/40 bg-[var(--green)]/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-[var(--green)]">
+          <span aria-hidden>⚽</span> June 11 · July 19 · 2026
         </div>
-        <h1 className="mt-3 font-display text-5xl sm:text-7xl">
-          CUP <span className="text-white/40">coins</span>
+        <h1 className="mt-4 font-display text-6xl leading-[0.95] sm:text-8xl">
+          <span className="hero-gradient">CUP</span>
+          <span className="ml-3 text-white/40">coins</span>
         </h1>
-        <p className="mt-4 max-w-2xl text-white/70">
-          48 country meme coins for the 2026 World Cup. Every token launched on
-          Raydium Launchlab. Every mint address ends with{" "}
-          <span className="font-mono text-white">CUP</span>.
+        <p className="mt-5 max-w-2xl text-base text-white/75 sm:text-lg">
+          48 country meme coins for the 2026 World Cup. Every token launched on{" "}
+          <span className="font-semibold text-[var(--gold)]">
+            Raydium Launchlab
+          </span>
+          . Every mint address ends with{" "}
+          <span className="font-mono font-bold text-[var(--green)]">CUP</span>.
         </p>
       </header>
 
