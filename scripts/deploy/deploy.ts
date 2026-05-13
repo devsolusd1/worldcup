@@ -132,7 +132,7 @@ async function deployOne(
     txVersion: TxVersion.V0,
     slippage: new BN(100),
     buyAmount: inAmount,
-    createOnly: false,
+    createOnly: true,
     extraSigners: [pair],
     creatorFeeOn: CpmmCreatorFeeOn.OnlyTokenB,
     supply: new BN("1000000000000000"),
