@@ -42,6 +42,9 @@ Failed deploys are retried on the next run.
 
 ## Recommended flow
 
+The hub `$CUP` is intentionally skipped by default — deploy it LAST,
+after the country tokens are live and you've prepared CUP metadata.
+
 ```powershell
 # 1. Sanity check: see your deployer pubkey + balance
 npm run deploy:balance
@@ -53,17 +56,21 @@ npm run deploy:assignments
 # 3. Simulate without spending SOL
 npm run deploy:dry
 
-# 4. Deploy ONLY the hub $CUP first to verify everything works
-npm run deploy -- --only=CUP
+# 4. Deploy ONE country first as a smoke test (e.g. BRA)
+npm run deploy -- --only=BRA
 
 #    → check the mint on solscan.io and the pool on raydium.io/launchpad
 #    → if it looks good, continue
 
-# 5. Deploy the remaining 48
+# 5. Deploy the remaining 47 country tokens (hub still skipped)
 npm run deploy
 
-# 6. Write the resulting mint addresses back into lib/mints.ts so the
-#    site picks them up automatically
+# 6. Write the resulting mint addresses back into lib/mints.ts
+npm run deploy:sync
+
+# 7. LATER, when CUP metadata is ready and uploaded to Pinata,
+#    deploy the hub:
+npm run deploy -- --only=CUP
 npm run deploy:sync
 ```
 

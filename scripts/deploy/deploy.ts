@@ -163,6 +163,7 @@ function parseArgs() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
   const yes = args.includes("--yes") || args.includes("-y");
+  const includeHub = args.includes("--include-hub");
 
   const onlyArg = args.find((a) => a.startsWith("--only="));
   const only = onlyArg
@@ -172,11 +173,11 @@ function parseArgs() {
         .map((s) => s.trim().toUpperCase())
     : null;
 
-  return { dryRun, yes, only };
+  return { dryRun, yes, only, includeHub };
 }
 
 async function main() {
-  const { dryRun, yes, only } = parseArgs();
+  const { dryRun, yes, only, includeHub } = parseArgs();
 
   const assignments = loadAssignments();
   const cids = loadMetadataCids();
@@ -187,6 +188,19 @@ async function main() {
     const prior = deploys[a.id];
     return !prior || prior.error;
   });
+
+  // Skip hub by default — it is deployed last, when the user is ready.
+  // Override with --include-hub or --only=CUP/hub.
+  const hubExplicit =
+    includeHub ||
+    (only &&
+      (only.includes("CUP") || only.includes("HUB")));
+  let hubSkipped = false;
+  if (!hubExplicit) {
+    const before = pending.length;
+    pending = pending.filter((a) => a.id !== "hub");
+    hubSkipped = pending.length < before;
+  }
 
   if (only) {
     pending = pending.filter(
@@ -208,6 +222,11 @@ async function main() {
   console.log(
     `Pending:   ${pending.length} of ${assignments.length}${only ? ` (filtered by --only=${only.join(",")})` : ""}`,
   );
+  if (hubSkipped) {
+    console.log(
+      `           (hub $CUP skipped — pass --include-hub or --only=CUP to deploy it)`,
+    );
+  }
   console.log("");
 
   if (pending.length === 0) {
