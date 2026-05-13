@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "flags": "tsx scripts/generate-flag-pngs.ts"
+    "flags": "tsx scripts/generate-flag-pngs.ts",
+    "metadata": "tsx scripts/generate-metadata.ts",
+    "pinata": "tsx scripts/upload-metadata.ts"
   },
   "dependencies": {
     "flag-icons": "^7.5.0",

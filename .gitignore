@@ -45,3 +45,6 @@ next-env.d.ts
 
 # generated flag PNGs (run npm run flags to regenerate)
 /flags-png/
+
+# Pinata upload result mapping (regenerate with npm run pinata)
+/metadata-cids.json
